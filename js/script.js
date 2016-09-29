@@ -12,7 +12,8 @@ function PetChat(){
     for(var i=0; i<numPets; i++){
       var type = prompt("What is pet #" + (i+1) + "? (cat, dog, bird)");
       var name = prompt("What is pet #" + (i+1) + "'s name'?");
-      var textOut = type + " " + name + "<br />";
+      var str = speak(type);
+      var textOut = type + " " + name + " says "+ str+ "<br />";
       display.innerHTML += textOut;
     }
   };
@@ -24,6 +25,17 @@ function PetChat(){
 
     askPetInfo();
   }
+};
+
+var speak = function(type){
+  if (type == "dog")
+    return "Bow Bow";
+  else if (type == "cat")
+    return "Meow Meow";
+  else if (type == "bird")
+    return "Coo Coo";
+  else
+    return "Pet Pet";
 };
 
 var chat = new PetChat();
